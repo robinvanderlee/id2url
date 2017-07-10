@@ -4,9 +4,9 @@
 terms. The preset websites are primarily useful for (computational) biologists. Command line
 options allow:
 * flexible specification of search terms
-* multiple websites for each term, allowing combinations of both preset and custom URLs
+* multiple websites for each term, allowing combinations of both preset and user-supplied URLs
 
-See also `id2url --help`.
+See below for usage instructions.
 
 
 # Issues & Contact
@@ -31,6 +31,7 @@ Download the source code and run `id2url`:
 
 # Run id2url
 
+Instructions from `id2url.pl --help`:
 ```
 Open a set of web pages for a list of identifiers or other search terms, which can be supplied as a file, or entered by pasting under the -l flag.
 
