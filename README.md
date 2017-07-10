@@ -11,8 +11,8 @@ See also `id2url --help`.
 # Install and run id2url:
 
 Download the source code and run `id2url`:
-* `wget https://github.com/robinvanderlee/id2url/archive/master.zip`
-* `unzip master.zip`
+* `wget https://github.com/robinvanderlee/id2url/archive/<version>.zip`
+* `unzip id2url-<version>.zip`
 * `cd id2url-<version>`
 * `./id2url.pl`
 
