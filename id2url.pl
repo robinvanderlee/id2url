@@ -199,6 +199,8 @@ sub loadUrls {
 }
 
 sub processCommandLineOptions {
+  ### Yes, I should have used the Getopt module for this, but it was good practise to do it myself.
+
     # foreach(@ARGV){ print "$_\n" }
     &showUsageAndExit unless @ARGV; # no arguments at all, not even a file name?
     
@@ -315,14 +317,15 @@ sub verifyInput {
 
 sub showUsageAndExit {
     my $usage = qq{
-###################################
-## Robin van der Lee             ##
-## robin.vanderlee\@radboudumc.nl ##
-###################################
-  v$VERSION
+#####################################
+## Robin van der Lee               ##
+## robinvanderlee AT gmail DOT com ##
+#####################################
+
+Open a set of web pages for a list of identifiers or other search terms, which can be supplied as a file, or entered by pasting under the -l flag.
 
 Usage: $0 [options] <file with identifiers>
-Open a set of web pages for a list of identifiers or other search terms, which can be supplied as a file, or entered by pasting under the -l flag.
+  v$VERSION
 
     Examples:
       - ./id2url.pl uniprot_identifiers.txt
