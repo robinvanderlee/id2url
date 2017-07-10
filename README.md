@@ -1,16 +1,18 @@
 # id2url
 
 `id2url` opens a set of websites for a list of identifiers or other search
-terms. The preset websites are useful for (computational) biologists. Command line
+terms. The preset websites are primarily useful for (computational) biologists. Command line
 options allow:
 * flexible specification of search terms
 * multiple websites for each term, allowing combinations of both preset and custom URLs
 
+See also `id2url --help`.
+
 # Install and run id2url:
 
 Download the source code and run `id2url`:
-* `wget https://github.com/cmbi/id2url/archive/<version>.zip`
-* `unzip id2url-<version>.zip`
+* `wget https://github.com/robinvanderlee/id2url/archive/master.zip`
+* `unzip master.zip`
 * `cd id2url-<version>`
 * `./id2url.pl`
 
