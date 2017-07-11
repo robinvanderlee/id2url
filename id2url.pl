@@ -50,7 +50,7 @@ $total = int($total + 0.5); # round to nearest integer
 
 # warn if many URLs will be opened
 if($batchSize eq "all" && $total > 25){
-  print "Opening $total identifiers in $numUrls URL(s)... Are you sure you want to continue? (press any key to do so)\n";
+  print "Opening $total identifiers in $numUrls URL(s)... Are you sure you want to continue? (press enter to do so)\n";
 
   #<>; # can't use <> because of ARGV association
   open USERIN, '<', '/dev/tty';
@@ -129,9 +129,9 @@ foreach my $id (@idList){
 
         my $left = $total - $batchCounter;
 				if($left <= $batchSize){
-          print " $batchCounter of $total identifiers opened, press any key to open the last $left\n";
+          print " $batchCounter of $total identifiers opened, press enter to open the last $left\n";
         } else {
-          print " $batchCounter of $total identifiers opened, press any key to open the next $batchSize\n";
+          print " $batchCounter of $total identifiers opened, press enter to open the next $batchSize\n";
         }
 
 				#<>; # can't use <> because of ARGV association
