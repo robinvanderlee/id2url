@@ -50,7 +50,7 @@ $total = int($total + 0.5); # round to nearest integer
 
 # warn if many URLs will be opened
 if($batchSize eq "all" && $total > 25){
-  print "Opening $total identifiers in $numUrls URL(s)... Are you sure you want to continue? (press any key to do so)\n";
+  print "Opening $total identifiers in $numUrls URL(s)... Are you sure you want to continue? (press enter to do so)\n";
 
   #<>; # can't use <> because of ARGV association
   open USERIN, '<', '/dev/tty';
@@ -129,9 +129,9 @@ foreach my $id (@idList){
 
         my $left = $total - $batchCounter;
 				if($left <= $batchSize){
-          print " $batchCounter of $total identifiers opened, press any key to open the last $left\n";
+          print " $batchCounter of $total identifiers opened, press enter to open the last $left\n";
         } else {
-          print " $batchCounter of $total identifiers opened, press any key to open the next $batchSize\n";
+          print " $batchCounter of $total identifiers opened, press enter to open the next $batchSize\n";
         }
 
 				#<>; # can't use <> because of ARGV association
@@ -328,12 +328,12 @@ Usage: $0 [options] <file with identifiers>
   v$VERSION
 
     Examples:
-      - ./id2url.pl uniprot_identifiers.txt
-      - cut -f 2 biomart_with_entrez_idenfiers.txt | sort | perl id2url.pl -p 2
-      - ./id2url.pl -b 5 -o 2 -v 1 -l
-      - perl id2url.pl -u \"http:\/\/www.ncbi.nlm.nih.gov\/pubmed?cmd=search&term=%s%20immunity\"
+      \$ ./id2url.pl uniprot_identifiers.txt
+      \$ cut -f 2 biomart_with_entrez_idenfiers.txt | sort | perl id2url.pl -p 2
+      \$ ./id2url.pl -b 5 -o 2 -v 1 -l
+      \$ perl id2url.pl -u \"http:\/\/www.ncbi.nlm.nih.gov\/pubmed?cmd=search&term=%s%20immunity\"
           pubmed_identifiers_search_with_immunity.txt
-      - ./id2url.pl -l -p 2,7,10 -u \"http://www.genome.jp/dbget-bin/www_bget?hsa:%s\"
+      \$ ./id2url.pl -l -p 2,7,10 -u \"http://www.genome.jp/dbget-bin/www_bget?hsa:%s\"
     
     By default, identifiers should be on different lines (separated by a newline, \\n).
 
@@ -383,8 +383,8 @@ Usage: $0 [options] <file with identifiers>
                            19 InnateDB
 
     Other options.
-               -f        Open a set of pasted string (URLs) in the browser as is (i.e. without any
-                           identifier inserted)
+               -f        Open a set of URLs in the browser as is (i.e. without any
+                           identifier inserted or any other modification)
 
 };
 	print "$usage";
