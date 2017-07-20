@@ -33,10 +33,8 @@ Download the source code and run `id2url`:
 
 Instructions from `id2url.pl --help`:
 ```
-Open a set of web pages for a list of identifiers or other search terms, which can be supplied as a file, or entered by pasting under the -l flag.
-
-Usage: /Users/robinvanderlee/Research/scripts/id2url/id2url.pl [options] <file with identifiers>
   v1.1
+Open a set of web pages for a list of identifiers or other search terms, which can be supplied as a file, or entered by pasting under the -l flag.
 
     Examples:
       $ ./id2url.pl uniprot_identifiers.txt
