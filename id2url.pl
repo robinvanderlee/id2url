@@ -64,7 +64,7 @@ foreach my $id (@idList){
   # open identifier it is the Xth in a row (by default: open all)
 	if(($index % $everyOther) == 0){
 		
-    # clean up the provided identifier
+    # tidy up the provided identifier
     chomp $id;
 		$id =~ s/^\s*//g; # trim whitespace at start
     $id =~ s/\s*$//g; # trim whitespace at end
@@ -80,7 +80,7 @@ foreach my $id (@idList){
 
       # construct the command to be run
       my $cmd = "";
-      if ($platform eq 'darwin')  {
+      if ($platform eq 'darwin'){  # Mac OS X
         ## bugged since OS X Yosemite:
         # "LSOpenURLsWithRole() failed with error -1712 for the URL $currentUrl"
         $cmd = "open \"$currentUrl\"";
@@ -92,7 +92,7 @@ foreach my $id (@idList){
         my $sleepFix = 0.1;
         $sleepSec = $sleepFix if $sleepSec < $sleepFix;
 
-      } # Mac OS X
+      }
       elsif ($platform eq 'linux')   { $cmd = "x-www-browser \"$currentUrl\""; } # Linux
       elsif ($platform eq 'MSWin32') { $cmd = "start $currentUrl";             } # Win95..Win7
       else { die "Unknown OS. Cannot build the command for opening URLs from the command line.\n"; }
@@ -110,7 +110,8 @@ foreach my $id (@idList){
       }
 
       # wait a while if requested
-      select(undef, undef, undef, $sleepSec); #sleep $sleepSec; # sleep doesn't work for intervals shorter than 1 second
+      #sleep $sleepSec; # sleep doesn't work for intervals shorter than 1 second
+      select(undef, undef, undef, $sleepSec);
     }
 
     # print informatie depending on verbosity level
@@ -199,7 +200,7 @@ sub loadUrls {
 }
 
 sub processCommandLineOptions {
-  ### Yes, I should have used the Getopt module for this, but it was good practise to do it myself.
+  ### Yes, I should have used the Getopt module for this, but it was fun and good practise to do it myself.
 
     # foreach(@ARGV){ print "$_\n" }
     &showUsageAndExit unless @ARGV; # no arguments at all, not even a file name?
@@ -322,18 +323,18 @@ sub showUsageAndExit {
 ## robinvanderlee AT gmail DOT com ##
 #####################################
 
+  v$VERSION
 Open a set of web pages for a list of identifiers or other search terms, which can be supplied as a file, or entered by pasting under the -l flag.
 
-Usage: $0 [options] <file with identifiers>
-  v$VERSION
-
-    Examples:
+    Usage:
       \$ ./id2url.pl uniprot_identifiers.txt
       \$ cut -f 2 biomart_with_entrez_idenfiers.txt | sort | perl id2url.pl -p 2
       \$ ./id2url.pl -b 5 -o 2 -v 1 -l
       \$ perl id2url.pl -u \"http:\/\/www.ncbi.nlm.nih.gov\/pubmed?cmd=search&term=%s%20immunity\"
           pubmed_identifiers_search_with_immunity.txt
       \$ ./id2url.pl -l -p 2,7,10 -u \"http://www.genome.jp/dbget-bin/www_bget?hsa:%s\"
+      \$ cut -f 1 table_with_identifiers_in_column_1 | sort -u | gshuf | head | idtourl.pl -p 10
+      \$ ./id2url.pl -f -l"
     
     By default, identifiers should be on different lines (separated by a newline, \\n).
 
