@@ -9,17 +9,6 @@ options allow:
 See below for usage instructions.
 
 
-# Issues & Contact
-
-> **robinvanderlee AT gmail DOT com**<br/><br/>
-> [Google Scholar](https://scholar.google.co.uk/citations?user=ISYCcUUAAAAJ)<br/>
-> [ORCID](http://orcid.org/0000-0001-7391-9438)<br/>
-> [Twitter](https://twitter.com/robinvdlee)<br/>
-> [LinkedIn](http://nl.linkedin.com/in/robinvdlee)
-
-If you encounter any problems, please report an issue.
-
-
 # Install id2url
 
 Download the source code and run `id2url`:
